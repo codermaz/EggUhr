@@ -17,7 +17,6 @@ class ViewController: UIViewController {
     
     func showTime() {
         timeLabel.text = String (time)
-        
     }
     
     @objc func decreaseTimer() {
@@ -44,7 +43,6 @@ class ViewController: UIViewController {
     }
     
     @IBAction func play(_ sender: Any) {
-    
         playTimer()
     }
     
@@ -55,7 +53,6 @@ class ViewController: UIViewController {
     
     @IBAction func `return`(_ sender: UIBarButtonItem) {
       playTimer()
-        
     }
     
     @IBAction func plusTime(_ sender: Any) {
@@ -91,16 +88,25 @@ class ViewController: UIViewController {
     }
     
     @IBAction func einheitControl(_ sender: UISegmentedControl) {
+        var anfangszeit = 0
+        
+        anfangszeit = Int (anfangszeitTextField.text!)!
+        timer.invalidate()
         switch sender.selectedSegmentIndex {
             case 0:    // min
                 timeUnit = 0
+                anfangszeit = Int (anfangszeit/60)
+                timeLabel.text = String (anfangszeit * 60)
             case 1:    // sec
                 timeUnit = 1
+                anfangszeit = Int (anfangszeit*60)
+                timeLabel.text = String (anfangszeit)
             default:
                 break
         }
-        timer.invalidate()
-        showTime()
+        anfangszeitTextField.text = String (describing: anfangszeit)
+        
+     
     }
     
     override func viewDidLoad() {
