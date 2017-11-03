@@ -29,8 +29,7 @@ class ViewController: UIViewController {
         }
     }
     
-    
-    @IBAction func play(_ sender: Any) {
+    func playTimer() {
         // Vorsicht: untere Zeile ist fehlerhaft
         //timer = Timer(timeInterval: 1, target: self, selector: #selector(ViewController.decreaseTimer), userInfo: nil, repeats: true)
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.decreaseTimer), userInfo: nil, repeats: true)
@@ -42,11 +41,21 @@ class ViewController: UIViewController {
                 time = Int (anfangsZeit)!
             }
         }
- 
+    }
+    
+    @IBAction func play(_ sender: Any) {
+    
+        playTimer()
     }
     
     @IBAction func pause(_ sender: Any) {
         timer.invalidate()
+        anfangszeitTextField.text = timeLabel.text
+    }
+    
+    @IBAction func `return`(_ sender: UIBarButtonItem) {
+      playTimer()
+        
     }
     
     @IBAction func plusTime(_ sender: Any) {

@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,11 +24,18 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="EGG-UHR" id="JH5-wj-4yI">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="pause" id="Yg5-7g-KHF">
-                                            <connections>
-                                                <action selector="pause:" destination="BYZ-38-t0r" id="6Tj-0d-fCL"/>
-                                            </connections>
-                                        </barButtonItem>
+                                        <leftBarButtonItems>
+                                            <barButtonItem systemItem="pause" id="Yg5-7g-KHF">
+                                                <connections>
+                                                    <action selector="pause:" destination="BYZ-38-t0r" id="6Tj-0d-fCL"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem systemItem="refresh" id="kGC-A9-Hgd">
+                                                <connections>
+                                                    <action selector="return:" destination="BYZ-38-t0r" id="2ru-NN-j6J"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </leftBarButtonItems>
                                         <barButtonItem key="rightBarButtonItem" systemItem="play" id="CPc-o9-4Gf">
                                             <connections>
                                                 <action selector="play:" destination="BYZ-38-t0r" id="zb6-ZJ-Gfc"/>
