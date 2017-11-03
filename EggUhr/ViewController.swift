@@ -58,7 +58,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var plusTimeOutlet: UIBarButtonItem!
     
     @IBAction func reset(_ sender: Any) {
-        time = resetTime
+        time = Int (anfangszeitTextField.text!)!
+        timer.invalidate()
         showTime()
     }
     
